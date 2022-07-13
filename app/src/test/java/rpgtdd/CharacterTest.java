@@ -1,6 +1,6 @@
 package rpgtdd;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class CharacterTest {
@@ -8,14 +8,23 @@ public class CharacterTest {
     public void TestHit() {
         Character character = new Character(10);
         character.hit(5);
-        Assertions.assertTrue(character.isAlive());
+        assertTrue(character.isAlive());
     }
 
     @Test
     public void TestWithDeath() {
         Character character = new Character(10);
         character.hit(10);
-        Assertions.assertFalse(character.isAlive());
+        assertTrue(character.isAlive());
+    }
+
+    @Test
+    public void TestTwoWitDeath() {
+        Character character = new Character(10);
+        character.hit(5);
+        character.hit(5);
+
+        assertTrue(character.isAlive());
     }
 
     @Test
@@ -24,7 +33,7 @@ public class CharacterTest {
         character.hit(5);
         character.hit(4);
 
-        Assertions.assertTrue(character.isAlive());
+        assertTrue(character.isAlive());
     }
 
 }
