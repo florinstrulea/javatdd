@@ -1,14 +1,16 @@
 package rpgtdd;
 
 public class Character {
-    private int life = 0;
+    public String name = "";
+    public int life = 0;
 
-    public Character(int life) {
+    public Character(int life, String name) {
         this.life = life;
+        this.name = name;
     }
 
     public boolean isAlive() {
-        if (this.life >= 0)
+        if (this.life > 0)
             return true;
         else
             return false;
@@ -16,5 +18,13 @@ public class Character {
 
     public void hit(int damage) {
         this.life -= damage;
+    }
+
+    // public void Attack() {
+
+    // }
+
+    public String display() {
+        return name + " : " + life + "PV";
     }
 }
